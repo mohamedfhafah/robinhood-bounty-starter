@@ -1,0 +1,12 @@
+# Root domains for campaign recon (derived from provided scope)
+robinhood.com
+robinhood.net
+rhapollo.net
+rhinternal.net
+bitstamp.net
+saytechnologies.com
+say.rocks
+1integrations.com
+x1.co
+x1creditcard.com
+tradepmr.com

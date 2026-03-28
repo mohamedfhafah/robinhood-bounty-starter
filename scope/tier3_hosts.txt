@@ -1,0 +1,12 @@
+# Tier 3 host scope (host patterns)
+1integrations.com
+*.1integrations.com
+x1.co
+*.x1.co
+x1creditcard.com
+*.x1creditcard.com
+fusion.tradepmr.com
+www.tradepmr.com
+insight2.tradepmr.com
+bitstamp.net
+*.bitstamp.net

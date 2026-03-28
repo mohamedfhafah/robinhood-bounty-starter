@@ -1,0 +1,14 @@
+# Tier 1 host scope (host patterns)
+rhapollo.net
+*.rhapollo.net
+rhinternal.net
+*.rhinternal.net
+robinhood.com
+*.robinhood.com
+api.robinhood.com
+nummus.robinhood.com
+robinhood.net
+*.robinhood.net
+oak.robinhood.net
+oak.robinhood.com
+www.bitstamp.net

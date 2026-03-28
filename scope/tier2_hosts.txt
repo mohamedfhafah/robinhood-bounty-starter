@@ -1,0 +1,5 @@
+# Tier 2 host scope (host patterns)
+saytechnologies.com
+*.saytechnologies.com
+say.rocks
+*.say.rocks
