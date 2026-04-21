@@ -6,10 +6,10 @@ set -euo pipefail
 
 TOKEN_A="$RH_TOKEN_A"
 TOKEN_B="$RH_TOKEN_B"
-USER_A="47429b1f-a717-4e4d-a6e0-d504dd1a5825"
-USER_B="a04cbcdc-e9d5-4669-b993-1802ccae9a77"
+USER_A="${RH_USER_A:-user-a}"
+USER_B="${RH_USER_B:-user-b}"
 BASE="https://api.robinhood.com"
-OUTDIR="/Users/mohamedfhafah/Desktop/PROJECTS/30_SECURITY_CTF/BUGBOUNTY/robinhood-bounty/output/bola_$(date +%Y%m%dT%H%M%S)"
+OUTDIR="${OUTDIR:-./output/bola_$(date +%Y%m%dT%H%M%S)}"
 mkdir -p "$OUTDIR"
 
 UA="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"

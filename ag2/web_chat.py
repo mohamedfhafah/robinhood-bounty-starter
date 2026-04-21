@@ -19,7 +19,7 @@ from flask import Flask, flash, redirect, render_template, request, url_for
 BASE_DIR = Path(__file__).resolve().parent
 DEFAULT_CAMPAIGN = str((BASE_DIR / "../output/campaign_20260217_205128").resolve())
 DEFAULT_AGENTS_MD = str((BASE_DIR / "../../AGENTS.md").resolve())
-DEFAULT_ENV_FILE = "/Users/mohamedfhafah/Desktop/PROJECTS/10_ACTIVE/ag2_google_setup/.env"
+DEFAULT_ENV_FILE = os.getenv("AG2_WEB_CHAT_ENV_FILE", "")
 DEFAULT_MAX_ROUND = 8
 DEFAULT_RUN_TIMEOUT = 480
 MAX_LIVE_LOG_LINES = 800
@@ -49,7 +49,7 @@ app = Flask(
     __name__,
     template_folder=str((BASE_DIR / "templates").resolve()),
 )
-app.secret_key = "ag2-local-gui"
+app.secret_key = os.getenv("FLASK_SECRET_KEY", "change-me-in-production")
 
 _LOCK = threading.Lock()
 _STATE: dict[str, Any] = {

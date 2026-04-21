@@ -473,7 +473,7 @@ Run time: 2026-02-19T00:32:10
 
 - Recommendation: **Submit as reliability/security-hardening issue (low confidence security impact)** OR hold if program rejects pure 5xx stability issues.
 
-- Evidence matrix: `/Users/mohamedfhafah/Desktop/PROJECTS/30_SECURITY_CTF/BUGBOUNTY/robinhood-bounty/output/la005_escalation_matrix_20260219_003210.tsv`
+- Evidence matrix: `./output/la005_escalation_matrix_20260219_003210.tsv`
 
 ## High-value batch next (2026-02-19 01:10–01:35 CET)
 

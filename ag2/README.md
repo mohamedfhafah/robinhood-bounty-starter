@@ -34,7 +34,7 @@ This setup is for compliant bug bounty workflows only.
 From the repo root:
 
 ```bash
-cd /Users/mohamedfhafah/Desktop/PROJECTS/30_SECURITY_CTF/BUGBOUNTY/robinhood-bounty/ag2
+cd ag2
 
 # sanity check without model calls
 python3 run_team.py --dry-run
@@ -55,7 +55,7 @@ Use an external `.env` directly (for example Gemini/Vertex setup):
 
 ```bash
 python3 run_team.py \
-  --env-file /Users/mohamedfhafah/Desktop/PROJECTS/10_ACTIVE/ag2_google_setup/.env \
+  --env-file /absolute/path/to/your/.env \
   --campaign ../output/campaign_20260217_205128 \
   --agents-md ../../AGENTS.md \
   --task "Build a compliant next-step testing and reporting plan." \
@@ -70,13 +70,13 @@ python3 run_team.py \
 Run a local chat interface on `http://127.0.0.1:5050`:
 
 ```bash
-cd /Users/mohamedfhafah/Desktop/PROJECTS/30_SECURITY_CTF/BUGBOUNTY/robinhood-bounty/ag2
+cd ag2
 python3 web_chat.py
 ```
 
 From the GUI:
 
-- set `Env file` to your setup (for example `/Users/mohamedfhafah/Desktop/PROJECTS/10_ACTIVE/ag2_google_setup/.env`);
+- set `Env file` to your setup (for example `/absolute/path/to/your/.env`);
 - set campaign/AGENTS paths as needed;
 - keep `speaker_selection=auto` for orchestrator routing;
 - enable `Allow agents to run commands` if you want `ExecAgent`;
