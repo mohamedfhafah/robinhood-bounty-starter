@@ -1,5 +1,7 @@
 .DS_Store
 __pycache__/
+.venv/
+ag2/.venv/
 ag2/runs/*
 !ag2/runs/.gitkeep
 output/*

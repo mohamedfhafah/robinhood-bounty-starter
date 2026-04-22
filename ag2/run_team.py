@@ -8,8 +8,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-import autogen
-
 from context_loader import build_manager_message, load_agents_md_excerpt, load_campaign_context
 from team_builder import (
     build_commander_proxy,
@@ -189,6 +187,17 @@ def _looks_like_local_ops_task(task: str) -> bool:
     return any(h in t for h in hints)
 
 
+def _load_autogen() -> Any:
+    try:
+        import autogen
+    except ImportError as exc:
+        raise RuntimeError(
+            "AG2 runtime dependency missing. Install it with "
+            "`python3 -m pip install -r ag2/requirements.txt`."
+        ) from exc
+    return autogen
+
+
 def main() -> int:
     args = parse_args()
 
@@ -224,6 +233,7 @@ def main() -> int:
         print(json.dumps(preview, indent=2))
         return 0
 
+    autogen = _load_autogen()
     llm_config = build_llm_config()
     orchestrator, specialists = build_orchestrator_and_specialists(llm_config)
     commander = build_commander_proxy()

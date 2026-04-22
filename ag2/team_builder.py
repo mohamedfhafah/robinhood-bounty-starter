@@ -1,11 +1,23 @@
 from __future__ import annotations
 
 import os
-from typing import Any
-
-import autogen
+from typing import TYPE_CHECKING, Any
 
 from prompts import ORCHESTRATOR, SPECIALISTS
+
+if TYPE_CHECKING:
+    import autogen
+
+
+def _load_autogen() -> Any:
+    try:
+        import autogen
+    except ImportError as exc:
+        raise RuntimeError(
+            "AG2 runtime dependency missing. Install it with "
+            "`python3 -m pip install -r ag2/requirements.txt`."
+        ) from exc
+    return autogen
 
 
 def build_llm_config() -> dict[str, Any]:
@@ -72,7 +84,8 @@ def _build_openai_or_google_config() -> dict[str, Any]:
     )
 
 
-def build_orchestrator_and_specialists(llm_config: dict[str, Any]) -> tuple[autogen.AssistantAgent, list[autogen.AssistantAgent]]:
+def build_orchestrator_and_specialists(llm_config: dict[str, Any]) -> tuple[Any, list[Any]]:
+    autogen = _load_autogen()
     orchestrator = autogen.AssistantAgent(
         name=ORCHESTRATOR.name,
         system_message=ORCHESTRATOR.system_message,
@@ -90,7 +103,8 @@ def build_orchestrator_and_specialists(llm_config: dict[str, Any]) -> tuple[auto
     return orchestrator, specialists
 
 
-def build_commander_proxy() -> autogen.UserProxyAgent:
+def build_commander_proxy() -> Any:
+    autogen = _load_autogen()
     return autogen.UserProxyAgent(
         name="UserCommander",
         is_termination_msg=lambda msg: (
@@ -103,7 +117,8 @@ def build_commander_proxy() -> autogen.UserProxyAgent:
     )
 
 
-def build_exec_agent(work_dir: str) -> autogen.UserProxyAgent:
+def build_exec_agent(work_dir: str) -> Any:
+    autogen = _load_autogen()
     return autogen.UserProxyAgent(
         name="ExecAgent",
         human_input_mode="NEVER",

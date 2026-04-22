@@ -75,6 +75,18 @@ export RH_TOKEN_B='Bearer <token_account_b>'   # optional
 ./scripts/authz_diff_probe.sh ./output/campaign_<timestamp>/authz_diff.tsv
 ```
 
+## AG2 local setup
+
+```bash
+cd ag2
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python3 run_team.py --dry-run
+```
+
+`--dry-run` now works without model calls and is the fastest smoke test for the AG2 layout.
+
 ## Suggested first testing flow
 
 1. Start with authenticated workflows using your own test account.
