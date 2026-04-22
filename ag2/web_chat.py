@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import secrets
 import signal
 import subprocess
 import sys
@@ -49,7 +50,7 @@ app = Flask(
     __name__,
     template_folder=str((BASE_DIR / "templates").resolve()),
 )
-app.secret_key = os.getenv("FLASK_SECRET_KEY", "change-me-in-production")
+app.secret_key = os.getenv("FLASK_SECRET_KEY") or secrets.token_hex(32)
 
 _LOCK = threading.Lock()
 _STATE: dict[str, Any] = {

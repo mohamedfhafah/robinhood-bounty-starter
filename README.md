@@ -1,4 +1,4 @@
-# Robinhood Bug Bounty Starter (Local Machine)
+# Robinhood Bug Bounty Starter
 
 This workspace is set up for **safe, compliant** testing based on the Robinhood program rules you provided.
 
