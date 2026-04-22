@@ -88,3 +88,12 @@ export RH_TOKEN_B='Bearer <token_account_b>'   # optional
 - Scope changes over time; re-verify with HackerOne before deep testing.
 - `scope/out_of_scope_issue_types.md` contains major excluded finding categories.
 - Mobile app bundle IDs are listed in program scope but are outside host-based checks in this toolkit.
+
+## Validation
+
+Static validation for the bundled automation scripts:
+
+```bash
+python3 -m compileall scripts
+find scripts -type f -name '*.sh' -print0 | xargs -0 -n1 bash -n
+```
